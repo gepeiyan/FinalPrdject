@@ -74,7 +74,6 @@ public class homeFragment extends
         args.putString (ARG_PARAM2, param2);
         fragment.setArguments (args);
         return fragment;
-        mode=(Switch) super.findViewById(R.id.switch1);
     }
 
     @Override
