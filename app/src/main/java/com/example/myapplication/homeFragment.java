@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -14,6 +15,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
@@ -38,13 +41,18 @@ import static android.content.ContentValues.TAG;
  * create an instance of this fragment.
  */
 public class homeFragment extends
-        ListFragment implements Runnable,AdapterView.OnItemClickListener {
+        Fragment implements Runnable,AdapterView.OnItemClickListener  {
     Handler handler;
     ArrayList<Map<String,String>> listItem;
     SimpleAdapter listItemAdapter;
     ListView listView;
+    Switch switchMsg;
     List list;
-    private Switch mode=null;
+
+
+
+
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -76,9 +84,33 @@ public class homeFragment extends
         return fragment;
     }
 
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view=inflater.inflate (R.layout.fragment_home,container,false);
+        listView=view.findViewById (R.id.android_list);
+        switchMsg=(Switch)view.findViewById (R.id.switch_1);
+
+        return view;
+
+    }
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        switchMsg.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    listView.setBackgroundColor (Color.parseColor ("#FFE4B5"));
+                }else {
+                    listView.setBackgroundColor (Color.parseColor ("#F8F8FF"));
+                }
+            }
+        });
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
+
+
         if (getArguments () != null) {
             mParam1 = getArguments ().getString (ARG_PARAM1);
             mParam2 = getArguments ().getString (ARG_PARAM2);
@@ -96,7 +128,7 @@ public class homeFragment extends
                             R.layout.news_list,
                             new String[]{"title","info"},
                             new int[]{R.id.title,R.id.info});
-                    setListAdapter (listItemAdapter);
+                    listView.setAdapter (listItemAdapter);
 
 
                 }
@@ -108,12 +140,6 @@ public class homeFragment extends
     }
 
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate (R.layout.fragment_home, container, false);
-    }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -158,4 +184,10 @@ public class homeFragment extends
         handler.sendMessage(msg);
 
     }
+
+
+
+
 }
+
+

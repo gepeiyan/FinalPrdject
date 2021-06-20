@@ -12,9 +12,8 @@
         android:text="@string/label_second" />
 
     <ListView
-        android:id="@+id/android:list"
+        android:id="@+id/android_list"
         android:layout_width="match_parent"
-        android:background="@color/white"
         android:layout_height="match_parent"
         android:layout_marginTop="68dp" />
 
@@ -28,9 +27,9 @@
         android:textSize="30sp" />
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/switch_1"
         android:layout_width="wrap_content"
         android:layout_height="61dp"
-        android:showText="true"
+        android:textOn="true"
         android:text="护眼" />
 </FrameLayout>
