@@ -22,7 +22,7 @@ public class MyPageAdapter extends FragmentPagerAdapter {
         if(position==0){
             return "主页";
         }else{
-            return "书单";
+            return "名家随笔";
         }
     }
     @Override
