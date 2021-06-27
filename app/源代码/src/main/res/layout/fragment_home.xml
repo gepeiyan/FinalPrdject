@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".homeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/label_second" />
+
+    <com.youth.banner.Banner
+        android:id="@+id/banner"
+        android:layout_width="413dp"
+        android:layout_height="220dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="65dp" />
+
+    <ListView
+        android:id="@+id/android_list"
+        android:layout_width="405dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="285dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="413dp"
+        android:layout_height="65dp"
+        android:background="#000000"
+        android:gravity="center"
+        android:text="@string/daily"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <Switch
+        android:id="@+id/switch_1"
+        android:layout_width="wrap_content"
+        android:layout_height="61dp"
+        android:textOn="true"
+        android:textColor="#FFFFFF"
+        android:text="护眼" />
+</FrameLayout>
